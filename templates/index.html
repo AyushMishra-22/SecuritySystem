@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Login and Registration Portal</title>
-  <link rel="stylesheet" href="../css/index.css">
-  <!-- <style>
-    {% comment %} Include Css Here from index.css {% endcomment %}   
-  </style> -->
+  <link rel="stylesheet" href="../static/css/index.css">
+  
   <style>
-    /* Reset some default styles for a cleaner look */
+    
     
   </style>
 </head>
 <body>
   <nav>
-    <a href="./StudentsLogin.html">Students Login</a>
-    <a href="./EmployeeLogin.html">Employee Login</a>
-    <a href="./StudentsRegistration.html">Students Registration</a>
-    <a href="./EmployeeRegistration.html">Employee Registration</a>
+    <a href="{{ url_for('students_login') }}">Students Login</a>
+    <a href="{{ url_for('employee_login') }}">Employee Login</a>
+    <a href="{{ url_for('students_registration') }}">Students Registration</a>
+    <a href="{{ url_for('employee_registration') }}">Employee Registration</a>
   </nav>
 
   <div class="content">

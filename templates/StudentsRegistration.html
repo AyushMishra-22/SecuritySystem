@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Student Registration</title>
-  <link rel="stylesheet" href="../css/StudentsRegistration.css">
-  <script src="../js/StudentRegistration.js"></script>
-  <!-- <style>
-{% comment %} Include StudentsRegistration.css here  {% endcomment %}
-  </style> -->
+  <link rel="stylesheet" href="../static/css/StudentsRegistration.css">
+  <script src="../static/js/StudentRegistration.js"></script>
+  
 </head>
 <body>
   <h1>Student Registration</h1>
 
-  <form onsubmit="return validateForm()" action="/students-registration" method="post">
+  <form onsubmit="return validateForm()" action="/submit_student_registration" method="post">
     <label for="student-name">Student Name</label>
     <input type="text" id="student-name" name="student_name">
 
