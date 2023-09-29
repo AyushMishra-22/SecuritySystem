@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Login</title>
+  <style>
+	{% comment %} Include Css Here from EmployeeLogin.css{% endcomment %} 
+  </style>
+</head>
+<body>
+  <h1>Employee Login</h1>
+
+  <form action="/employee-login" method="post">
+    <label for="employee-id">Employee ID</label>
+    <input type="text" id="employee-id" name="employee_id">
+
+    <label for="employee-password">Employee Password</label>
+    <input type="password" id="employee-password" name="employee_password">
+
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

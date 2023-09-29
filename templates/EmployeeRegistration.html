@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Registration</title>
+  <style>
+    {% comment %} Include Css Here from EmployeeRegistration.css {% endcomment %}
+</style>
+</head>
+<body>
+  <h1>Employee Registration</h1>
+
+  <form action="/employee-registration" method="post">
+    <label for="employee-id">Employee ID</label>
+    <input type="text" id="employee-id" name="employee_id">
+
+    <label for="employee-name">Employee Name</label>
+    <input type="text" id="employee-name" name="employee_name">
+
+    <label for="employee-email">Employee Email</label>
+    <input type="email" id="employee-email" name="employee_email">
+
+    <label for="employee-department">Employee Department</label>
+    <select id="employee-department" name="employee_department">
+      <option value="Computer Science Engineering">Computer Science Engineering</option>
+      <option value="CSE - AIDS">CSE - AIDS</option>
+      <option value="CSE - Cyber Security">CSE - Cyber Security</option>
+      <option value="Mechanical Engineering ">Mechanical Engineering </option>
+      <option value="Civil Engineering ">Civil Engineering </option>
+      <option value="Electrical and Electronic Engineering ">Electrical and Electronic Engineering </option>
+    </select>
+
+    <label for="employee-designation">Employee Designation</label>
+    <input type="text" id="employee-designation" name="employee_designation">
+
+    <label for="employee-password">Employee Password</label>
+    <input type="password" id="employee-password" name="employee_password">
+
+    <label for="employee-password-confirm">Confirm Password</label>
+    <input type="password" id="employee-password-confirm" name="employee_password_confirm">
+
+    <!-- reCAPTCHA v3 script -->
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+
+    <button type="submit">Register</button>
+  </form>
+
+  
+</body>
+</html>
