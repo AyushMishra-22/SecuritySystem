@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Employee Registration</title>
-  <style>
+  <link rel="stylesheet" href="../css/EmployeeRegistration.css">
+  <script src="../js/EmployeeRegistration.js"></script>
+  <!-- <style>
     {% comment %} Include Css Here from EmployeeRegistration.css {% endcomment %}
-</style>
+</style> -->
+
 </head>
 <body>
   <h1>Employee Registration</h1>
 
-  <form action="/employee-registration" method="post">
+  <form onsubmit="return validateForm()" action="/employee-registration" method="post">
     <label for="employee-id">Employee ID</label>
     <input type="text" id="employee-id" name="employee_id">
 
@@ -22,6 +25,7 @@
 
     <label for="employee-department">Employee Department</label>
     <select id="employee-department" name="employee_department">
+      <option value="">Select Department</option>
       <option value="Computer Science Engineering">Computer Science Engineering</option>
       <option value="CSE - AIDS">CSE - AIDS</option>
       <option value="CSE - Cyber Security">CSE - Cyber Security</option>

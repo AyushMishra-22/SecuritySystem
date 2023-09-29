@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Student Registration</title>
-  <style>
+  <link rel="stylesheet" href="../css/StudentsRegistration.css">
+  <script src="../js/StudentRegistration.js"></script>
+  <!-- <style>
 {% comment %} Include StudentsRegistration.css here  {% endcomment %}
-  </style>
+  </style> -->
 </head>
 <body>
   <h1>Student Registration</h1>
 
-  <form action="/students-registration" method="post">
+  <form onsubmit="return validateForm()" action="/students-registration" method="post">
     <label for="student-name">Student Name</label>
     <input type="text" id="student-name" name="student_name">
 
@@ -19,6 +21,7 @@
 
     <label for="student-department">Student Department</label>
     <select id="student-department" name="student_department">
+      <option value="">Select Department</option>
       <option value="Computer Science">Computer Science</option>
       <option value="CSE - AIDS">CSE - AIDS</option>
       <option value="CSE - Cyber Security">CSE - Cyber Security</option>
@@ -44,7 +47,7 @@
     <button type="submit">Register</button>
   </form>
 
-  <script>
+  <!-- <script>
 {% comment %} Add StudentsRegistration.js here {% endcomment %}
-  </script>
+  </script> -->
 </body>
