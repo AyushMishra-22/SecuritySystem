@@ -6,12 +6,25 @@ def create_students_table():
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS students (
-            id INTEGER PRIMARY KEY,
+            student_id TEXT PRIMARY KEY,
             student_name TEXT,
             student_email TEXT,
             student_department TEXT,
             student_year TEXT,
-            password TEXT
+            password TEXT,
+            student_image BLOB
+        )
+    ''')
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS employee (
+        employee_id TEXT PRIMARY KEY,
+        employee_name TEXT,
+        employee_email TEXT,
+        employee_department TEXT,
+        employee_designation TEXT,
+        employee_password TEXT,
+        employee_image BLOB
         )
     ''')
 

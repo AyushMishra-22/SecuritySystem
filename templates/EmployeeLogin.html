@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Employee Login</title>
-  <link rel="stylesheet" href="../css/EmployeeLogin.css">
+  <link rel="stylesheet" href="static/css/EmployeeLogin.css">
   <script src="../js/EmployeeLogin.js"></script>
-  
-  
 </head>
 <body>
   <h1>Employee Login</h1>
 
-  <form  onsubmit="return validateForm()" action="/employee-login" method="post">
+  <form  onsubmit="return validateForm()" action="/submit_employee_login" method="post">
     <label for="employee-id">Employee ID</label>
     <input type="text" id="employee-id" name="employee_id">
 

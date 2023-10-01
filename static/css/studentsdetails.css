@@ -1,0 +1,77 @@
+
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    h1 {
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      margin: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Table styles */
+    table {
+      width: 90%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Alternate row styles */
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Hover effect on rows */
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Column styles */
+    .table-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .table-column {
+      flex: 1;
+    }
+
+    .table-column:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
