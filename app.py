@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+from werkzeug.utils import secure_filename
+import os
 from db import connect_db
 
 app = Flask(__name__)
@@ -38,9 +39,9 @@ def student_details():
     with connect_db() as connection:
         cursor = connection.cursor()
         cursor.execute('SELECT * FROM students')
-        students = cursor.fetchall()   
+        students = cursor.fetchall()
 
-    return render_template("StudentsDetails.html", students = students)
+    return render_template("StudentsDetails.html", students=students)
 
 @app.route('/submit_employee_registration', methods=['POST'])
 def submit_employee_registration():
@@ -50,14 +51,24 @@ def submit_employee_registration():
     employee_department = request.form['employee_department']
     employee_designation = request.form['employee_designation']
     employee_password = request.form['employee_password']
-    employee_image = request.form['employee_image']
-    
+
+   # Handle image upload
+    if 'employee_image' in request.files:
+        employee_image = request.files['employee_image']
+        if employee_image.filename != '':
+            # Read the image file and convert it to binary data
+            image_data = employee_image.read()
+        else:
+            image_data = None
+    else:
+        image_data = None
+
     with connect_db() as connection:
         cursor = connection.cursor()
         cursor.execute('''
             INSERT INTO employee (employee_id, employee_name, employee_email, employee_department, employee_designation, employee_password, employee_image)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (employee_id, employee_name, employee_email, employee_department, employee_designation, employee_password, employee_image))
+        ''', (employee_id, employee_name, employee_email, employee_department, employee_designation, employee_password, image_data))
         connection.commit()
     return render_template("EmployeeLogin.html")
 
@@ -68,18 +79,27 @@ def submit_student_registration():
     student_email = request.form['student_email']
     student_department = request.form['student_department']
     student_year = request.form['student_year']
-    password = request.form['student_password']
-    student_image = request.form['student_image']
+    student_password = request.form['student_password']
+
+    if 'student_image' in request.files:
+        student_image = request.files['student_image']
+        if student_image.filename != '':
+            # Read the image file and convert it to binary data
+            image_data = student_image.read()
+        else:
+            image_data = None
+    else:
+        image_data = None
 
     with connect_db() as connection:
         cursor = connection.cursor()
         cursor.execute('''
-            INSERT INTO students (student_id, student_name, student_email, student_department,student_year, password, student_image)
+            INSERT INTO students (student_id, student_name, student_email, student_department, student_year, password, student_image)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (student_id, student_name, student_email, student_department,student_year, password, student_image))
+        ''', (student_id, student_name, student_email, student_department, student_year, student_password, image_data))
         connection.commit()
 
-    return render_template("StudentsLogin.html")
+        return render_template("StudentsLogin.html")
 
 @app.route('/submit_employee_login', methods=['POST'])
 def submit_employee_login():
@@ -117,9 +137,5 @@ def submit_student_login():
     else:
         return render_template("StudentsLogin.html", error_message="Invalid credentials")
 
-
-
 if __name__ == "__main__":
     app.run(debug=True)
-
-    

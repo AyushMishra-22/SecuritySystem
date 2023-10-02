@@ -10,7 +10,7 @@
 <body>
   <h1>Student Registration</h1>
 
-  <form onsubmit="return validateForm()" action="/submit_student_registration" method="post">
+  <form onsubmit="return validateForm()" action="/submit_student_registration" method="post" enctype="multipart/form-data">
     <label for="student-id">Student ID</label>
     <input type="text" id="student-id" name="student_id" required>
     <label for="student-name">Student Name</label>
